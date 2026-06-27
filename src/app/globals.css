@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #0A0C10;
+  --color-void-deep: #06080B;
+  --color-surface: #12161D;
+  --color-foreground: #E7E9ED;
+  --color-muted: #8A909B;
+  --color-signal: #AFC9FF;
+
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-space-mono);
+}
+
+:root {
+  --line: rgba(231, 233, 237, 0.08);
+  --line-strong: rgba(231, 233, 237, 0.16);
+  --glow: rgba(175, 201, 255, 0.55);
+  --pad-x: clamp(1.25rem, 5vw, 6rem);
+  --section-y: clamp(6.5rem, 14vh, 12rem);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0A0C10;
+  color: #E7E9ED;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(175, 201, 255, 0.18);
+  color: #E7E9ED;
+}
+
+:focus-visible {
+  outline: 2px solid #AFC9FF;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.11; }
+  50%       { opacity: 0.19; }
+}
+
+@keyframes float-particle {
+  0%   { transform: translateY(0);      opacity: 0;    }
+  12%  {                                opacity: 0.45; }
+  88%  {                                opacity: 0.12; }
+  100% { transform: translateY(-55vh);  opacity: 0;    }
+}
