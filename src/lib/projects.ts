@@ -58,7 +58,7 @@ export const projects: Project[] = [
   {
     title: 'TruthAdvisor Foundation',
     year: 'Client',
-    blurb: 'Designed and built the complete website for TruthAdvisor Foundation. Live and in production.',
+    blurb: 'Designed and built the complete website for Truth Advisor Education Foundation. Live and in production.',
     mass: 'shipped',
     lit: true,
     href: 'https://truthadvisorfoundation.com',
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   {
     title: 'Oscar Khadka',
     year: 'Client',
-    blurb: 'Designed and built a live personal website for Oscar Khadka, musician and artist.',
+    blurb: 'Designed and built a live personal website for Advocate Oscar Khadka.',
     mass: 'shipped',
     lit: true,
     href: 'https://oscarkhadka.com.np',
