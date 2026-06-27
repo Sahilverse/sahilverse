@@ -2,11 +2,11 @@ import Image from 'next/image'
 import { Wordmark } from './Wordmark'
 
 const PARTICLES = [
-  { left: '8%',  delay: '0s',    dur: '9s',  size: 1.5 },
-  { left: '27%', delay: '3.5s',  dur: '13s', size: 1   },
-  { left: '51%', delay: '1.2s',  dur: '8s',  size: 2   },
-  { left: '74%', delay: '5.1s',  dur: '11s', size: 1   },
-  { left: '91%', delay: '2.7s',  dur: '10s', size: 1.5 },
+  { left: '8%', delay: '0s', dur: '9s', size: 2 },
+  { left: '27%', delay: '3.5s', dur: '13s', size: 1.5 },
+  { left: '51%', delay: '1.2s', dur: '8s', size: 2.5 },
+  { left: '74%', delay: '5.1s', dur: '11s', size: 1.5 },
+  { left: '91%', delay: '2.7s', dur: '10s', size: 2 },
 ] as const
 
 export function Entry() {
@@ -27,7 +27,7 @@ export function Entry() {
           className="object-cover grayscale"
           sizes="100vw"
           style={{
-            objectPosition: 'center 10%',
+            objectPosition: 'center 13%',
             animation: 'breathe 5s ease-in-out infinite',
           }}
         />
