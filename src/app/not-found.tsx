@@ -35,7 +35,7 @@ export default function NotFound() {
         className="font-display font-light text-foreground/50 mt-4 mb-10"
         style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)' }}
       >
-        This sector doesn&apos;t exist.
+        This Multiverse doesn&apos;t exist.
       </p>
 
       <Link
