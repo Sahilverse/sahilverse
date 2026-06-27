@@ -3,6 +3,7 @@ import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import './globals.css'
 import { siteConfig } from '@/lib/siteConfig'
 import { buildPersonJsonLd, buildWebsiteJsonLd } from '@/lib/jsonLd'
+import { Analytics } from '@vercel/analytics/next'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-full bg-void text-foreground font-display antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   )
