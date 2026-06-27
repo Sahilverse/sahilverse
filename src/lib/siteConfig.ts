@@ -10,5 +10,6 @@ export const siteConfig = {
     linkedin: 'https://www.linkedin.com/in/sahil-dahal-40a28b212/',
     instagram: 'https://instagram.com/sahil__verse',
     youtube: 'https://www.youtube.com/@thesahilverseofficial',
+    twitter: 'https://x.com/Sahilverse_',
   },
 } as const

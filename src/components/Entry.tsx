@@ -1,5 +1,7 @@
 import Image from 'next/image'
+import { siGithub, siX, siInstagram, siYoutube } from 'simple-icons'
 import { Wordmark } from './Wordmark'
+import { siteConfig } from '@/lib/siteConfig'
 
 const PARTICLES = [
   { left: '8%', delay: '0s', dur: '9s', size: 2 },
@@ -7,6 +9,18 @@ const PARTICLES = [
   { left: '51%', delay: '1.2s', dur: '8s', size: 2.5 },
   { left: '74%', delay: '5.1s', dur: '11s', size: 1.5 },
   { left: '91%', delay: '2.7s', dur: '10s', size: 2 },
+] as const
+
+// LinkedIn path — hardcoded since simple-icons v16 removed it
+const LINKEDIN_PATH =
+  'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'
+
+const HERO_SOCIALS = [
+  { label: 'GitHub', href: siteConfig.socials.github, path: siGithub.path },
+  { label: 'LinkedIn', href: siteConfig.socials.linkedin, path: LINKEDIN_PATH },
+  { label: 'X', href: siteConfig.socials.twitter, path: siX.path },
+  { label: 'Instagram', href: siteConfig.socials.instagram, path: siInstagram.path },
+  { label: 'YouTube', href: siteConfig.socials.youtube, path: siYoutube.path },
 ] as const
 
 export function Entry() {
@@ -78,6 +92,24 @@ export function Entry() {
           Enter the universe
           <span className="group-hover:translate-y-1 transition-transform inline-block">↓</span>
         </a>
+
+        {/* Social icon row */}
+        <nav aria-label="Social links" className="flex items-center gap-5 mt-2">
+          {HERO_SOCIALS.map(({ label, href, path }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="text-muted/50 hover:text-signal transition-colors"
+            >
+              <svg viewBox="0 0 24 24" width={15} height={15} fill="currentColor" aria-hidden>
+                <path d={path} />
+              </svg>
+            </a>
+          ))}
+        </nav>
       </div>
     </section>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const SECTIONS = [
   { id: 'origin', label: 'Origin' },
@@ -38,18 +39,24 @@ export function Nav() {
     return () => observers.forEach((o) => o?.disconnect())
   }, [])
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   const closeMenu = useCallback(() => setMenuOpen(false), [])
 
   return (
     <>
-      {/* 1px signal scan line at very top */}
+      {/* 1px signal scan line */}
       <div
         aria-hidden
         className="fixed top-0 left-0 right-0 z-50 h-px bg-signal origin-left"
         style={{ transform: `scaleX(${progress})`, boxShadow: '0 0 8px var(--glow)' }}
       />
 
-      {/* HUD bar — SAHILVERSE · anchors · SAHIL DAHAL */}
+      {/* HUD bar */}
       <header
         className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-(--pad-x) h-12"
         style={{
@@ -58,7 +65,6 @@ export function Nav() {
           background: 'rgba(10,12,16,0.75)',
         }}
       >
-        {/* Left: live dot + brand */}
         <a
           href="#"
           aria-label="Sahilverse — back to top"
@@ -72,7 +78,7 @@ export function Nav() {
           SAHILVERSE
         </a>
 
-        {/* Center: section anchors — desktop */}
+        {/* Desktop anchors */}
         <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
           {SECTIONS.map(({ id, label }) => (
             <a
@@ -87,42 +93,63 @@ export function Nav() {
           ))}
         </nav>
 
-        {/* Right: SAHIL DAHAL — always visible on desktop; hamburger on mobile */}
         <div className="flex items-center gap-4">
           <span className="hidden md:block font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted/60">
             SAHIL DAHAL
           </span>
+          {/* Hamburger — always 3 bars; overlay owns the close button */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-1 text-muted hover:text-foreground transition-colors"
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            className="md:hidden flex flex-col justify-center gap-1.5 w-8 h-8 text-muted hover:text-foreground transition-colors"
+            aria-label="Open menu"
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((o) => !o)}
+            onClick={() => setMenuOpen(true)}
           >
-            <span className={`block w-5 h-px bg-current transition-transform origin-center ${menuOpen ? 'rotate-45 translate-y-[3.5px]' : ''}`} />
-            <span className={`block w-5 h-px bg-current transition-opacity ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-5 h-px bg-current transition-transform origin-center ${menuOpen ? '-rotate-45 translate-y-[-3.5px]' : ''}`} />
+            <span className="block w-5 h-px bg-current" />
+            <span className="block w-5 h-px bg-current" />
+            <span className="block w-5 h-px bg-current" />
           </button>
         </div>
       </header>
 
-      {/* Mobile overlay menu */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-30 flex flex-col items-center justify-center gap-8 bg-void/95"
-          style={{ backdropFilter: 'blur(20px)' }}
-        >
-          {SECTIONS.map(({ id, label }) => (
-            <a
-              key={id}
-              href={`#${id}`}
+      {/* Mobile overlay — z-60 sits above header */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="fixed inset-0 z-60 flex flex-col items-center justify-center gap-8 bg-void/95"
+            style={{ backdropFilter: 'blur(20px)' }}
+          >
+            {/* Close button — top right, matching hamburger position */}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
               onClick={closeMenu}
-              className="font-mono text-[0.8rem] uppercase tracking-[0.3em] text-muted hover:text-foreground transition-colors"
+              aria-label="Close menu"
+              className="absolute top-0 right-0 h-12 px-(--pad-x) flex items-center justify-center font-mono text-lg text-muted hover:text-foreground transition-colors"
             >
-              {label}
-            </a>
-          ))}
-        </div>
-      )}
+              ✕
+            </motion.button>
+
+            {SECTIONS.map(({ id, label }, i) => (
+              <motion.a
+                key={id}
+                href={`#${id}`}
+                onClick={closeMenu}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.06 + 0.08, ease: 'easeOut', duration: 0.25 }}
+                className="font-mono text-[0.8rem] uppercase tracking-[0.3em] text-muted hover:text-foreground transition-colors"
+              >
+                {label}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

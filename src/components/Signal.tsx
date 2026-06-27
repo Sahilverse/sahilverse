@@ -7,6 +7,7 @@ const CHANNELS = [
   { label: 'LinkedIn', href: siteConfig.socials.linkedin },
   { label: 'Instagram', href: siteConfig.socials.instagram },
   { label: 'YouTube', href: siteConfig.socials.youtube },
+  { label: 'X / Twitter', href: siteConfig.socials.twitter },
 ] as const
 
 export function Signal() {
