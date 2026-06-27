@@ -105,15 +105,19 @@ export function StackGlobe() {
     rafRef.current = requestAnimationFrame(tick)
   }, [])
 
-  // Responsive scale — measure wrapper width and scale globe to fit
+  // Responsive scale — ResizeObserver with resize event fallback for older Safari
   useEffect(() => {
     const el = wrapperRef.current
     if (!el) return
     const update = () => setGlobeScale(Math.min(1, el.offsetWidth / SIZE))
     update()
-    const ro = new ResizeObserver(update)
-    ro.observe(el)
-    return () => ro.disconnect()
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(update)
+      ro.observe(el)
+      return () => ro.disconnect()
+    }
+    window.addEventListener('resize', update, { passive: true })
+    return () => window.removeEventListener('resize', update)
   }, [])
 
   // Intersection + RAF
