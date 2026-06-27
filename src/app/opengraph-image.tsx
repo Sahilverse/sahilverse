@@ -3,6 +3,7 @@ import { siteConfig } from '@/lib/siteConfig'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
+export const alt = 'Sahil Dahal — Sahilverse | Software Engineer, Nepal'
 
 export default function OGImage() {
   return new ImageResponse(

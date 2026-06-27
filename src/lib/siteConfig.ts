@@ -4,7 +4,7 @@ export const siteConfig = {
   url: 'https://sahildahal.com.np',
   email: 'the.sahil.verse@gmail.com',
   description:
-    'Sahil Dahal (Sahilverse) is a software engineer from Nepal building full-stack systems, machine learning models, and production infrastructure. Shipping since 2024.',
+    'Sahil Dahal (Sahilverse) — software engineer from Nepal. Building full-stack systems, ML models, and production infrastructure. Crafting since 2021.',
   socials: {
     github: 'https://github.com/sahilverse',
     linkedin: 'https://www.linkedin.com/in/sahil-dahal-40a28b212/',
