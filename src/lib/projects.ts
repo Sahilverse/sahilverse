@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: 'eSewa Python SDK',
     year: '2025',
     blurb:
-      "Open-source Python package for integrating Nepal's primary payment gateway into any application. Framework-agnostic, published to PyPI — 4,200+ total downloads, 350+ monthly installs.",
+      "Open-source Python package for integrating Nepal's primary payment gateway into any application. Framework-agnostic. Published to PyPI with 4,200+ total downloads and 350+ monthly installs.",
     mass: 'shipped',
     lit: true,
     href: 'https://pypi.org/project/esewa',
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     title: 'Devio',
     year: '2025–26',
     blurb:
-      'Full-scale developer learning platform. Isolated multi-language code execution, GPU-accelerated video transcoding via BullMQ, on-demand CTF lab orchestration, real-time collaboration, and gamification — deployed on a self-managed VPS across 11 sprints. 78% of surveyed users said they\'d use it.',
+      'Full-scale developer learning platform. Isolated multi-language code execution, GPU-accelerated video transcoding via BullMQ, on-demand CTF lab orchestration, real-time collaboration, and gamification. Deployed on a self-managed VPS across 11 sprints. 78% of surveyed users said they\'d use it.',
     mass: 'flagship',
     lit: true,
     href: 'https://devio.live',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     title: 'Deepfake Detection System',
     year: '2026',
     blurb:
-      'Multimodal deepfake detection — spatial CNN (EfficientNet-B2) and frequency-domain CNN (FFT + ResNet-18) fused through a custom Cross-Attention architecture with residual connections and Layer Norm. 95% accuracy, 0.99 AUC on FaceForensics++.',
+      'Multimodal deepfake detection: spatial CNN (EfficientNet-B2) and frequency-domain CNN (FFT + ResNet-18) fused through a custom Cross-Attention architecture with residual connections and Layer Norm. 95% accuracy, 0.99 AUC on FaceForensics++.',
     mass: 'showcase',
     lit: false,
     href: 'https://github.com/sahilverse/Deepfake-Detection',
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     title: 'Dainiki',
     year: '2026',
     blurb:
-      'Cross-platform journaling application built with .NET MAUI and Blazor Hybrid. Runs natively on Windows, macOS, iOS, and Android — with mood tracking, tagging, and analytics.',
+      'Cross-platform journaling application built with .NET MAUI and Blazor Hybrid. Runs natively on Windows, macOS, iOS, and Android, with mood tracking, tagging, and analytics.',
     mass: 'standard',
     lit: false,
     href: 'https://github.com/sahilverse/Dainiki_Sahil_Dahal',

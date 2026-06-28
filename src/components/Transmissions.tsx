@@ -18,7 +18,7 @@ export function Transmissions() {
           Broadcasts, outward.
         </h2>
         <p className="text-muted text-base leading-relaxed mb-16 max-w-[55ch]">
-          Deep dives into how I actually built these systems (Coming soon).
+          Deep dives into how I actually built these systems: the decisions, the tradeoffs, the numbers. First broadcast soon.
         </p>
       </Reveal>
 

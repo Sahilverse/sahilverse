@@ -15,9 +15,10 @@ export function Origin() {
       <div className="lg:grid lg:grid-cols-[1fr_auto] lg:gap-16 lg:items-start">
         <div className="space-y-8">
           {[
-            "I'm Sahil Dahal — a software engineer from Nepal. Self-taught since 2021, shipping to production since 2024.",
+            "I'm Sahil Dahal, a software engineer from Nepal. Self-taught since 2021, shipping to production since 2024.",
             'I work across the full stack: the interface people see, the server behind it, and the systems keeping it running. When a problem demands depth, I go deep.',
-            "I don't build demos. I build software that runs — a package with 4,200+ installs, a platform people use daily, a deepfake detector that hits 95% accuracy.",
+            "I don't build demos. I build software that runs: a open source package with 4,200+ installs, a platform people use daily, a deepfake detector that hits 95% accuracy.",
+            'The work spans web apps, payment infrastructure, developer platforms, and machine learning. Built across Node, Django, PyTorch, and .NET. Shipped to production.',
           ].map((para, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <p
