@@ -1,8 +1,8 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import './globals.css'
 import { siteConfig } from '@/lib/siteConfig'
-import { buildPersonJsonLd, buildWebsiteJsonLd } from '@/lib/jsonLd'
+import { buildPersonJsonLd, buildWebsiteJsonLd, buildProjectsJsonLd, buildFaqJsonLd } from '@/lib/jsonLd'
 import { Analytics } from '@vercel/analytics/next'
 
 const spaceGrotesk = Space_Grotesk({
@@ -50,6 +50,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
+export const viewport: Viewport = {
+  themeColor: '#0A0C10',
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -59,6 +63,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildPersonJsonLd()) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildWebsiteJsonLd()) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd()) }} />
+        {buildProjectsJsonLd().map((schema) => (
+          <script key={schema.name} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        ))}
+        <link rel="me" href={siteConfig.socials.github} />
+        <link rel="me" href={siteConfig.socials.linkedin} />
+        <link rel="me" href={siteConfig.socials.twitter} />
+        <link rel="me" href={siteConfig.socials.instagram} />
+        <link rel="me" href={siteConfig.socials.youtube} />
       </head>
       <body className="min-h-full bg-void text-foreground font-display antialiased">
         {children}

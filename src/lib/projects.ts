@@ -14,7 +14,7 @@ export const projects: Project[] = [
     title: 'NepDai',
     year: '2025',
     blurb:
-      'A programming language with Nepali-keyword syntax, built from scratch. Complete pipeline: custom lexer, recursive-descent parser, and tree-walking evaluator. Published as a global npm package.',
+      'A programming language with Nepali-keyword syntax, built from scratch in TypeScript. Custom lexer, recursive-descent parser, tree-walking interpreter, and CLI with REPL, AST viewer, and token inspector. Published as a global npm package.',
     mass: 'standard',
     lit: false,
     href: 'https://nepdai.vercel.app',
